@@ -251,7 +251,18 @@
     <p>Last updated: <span id="updated" class="u-bold">04-01-2020</span></p>
   </footer>
 
-  <script src="/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var arr = Array.apply(null, document.querySelectorAll(".grid__box-totals--toggle"));
+      arr.forEach(function(t) {
+        t.addEventListener("click", function() {
+          arr.forEach(function(e) {
+            e !== t && e.classList.remove("grid__box-totals--opened")
+          }), t.classList.toggle("grid__box-totals--opened")
+        })
+      })
+    });
+  </script>
 </body>
 
 </html>
